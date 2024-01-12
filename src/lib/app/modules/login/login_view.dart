@@ -67,12 +67,12 @@ class LoginView extends GetView<LoginController> {
                   child: RichText(
                     textAlign: TextAlign.right,
                     text: TextSpan(
-                        recognizer: TapGestureRecognizer()
+                      recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           print("do something");
                         },
-                        text: "Forgot Your Password?",
-                        style: TextStyle(
+                      text: "Forgot Your Password?",
+                      style: TextStyle(
                         color: Color(0xffED4F2C),
                       ),
                       children: [],
@@ -83,7 +83,7 @@ class LoginView extends GetView<LoginController> {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => Get.offAllNamed(Routes.REGISTER),
+              onPressed: () => Get.offAllNamed(Routes.HOME),
               child: Text(
                 "Log In",
                 style: TextStyle(
@@ -98,34 +98,33 @@ class LoginView extends GetView<LoginController> {
               ),
             ),
             SizedBox(height: 10),
-             Row(
+            Row(
               children: [
                 Expanded(
                   child: RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
-                        recognizer: TapGestureRecognizer()
+                      recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           print("do something");
                         },
-                        text: "Dont have an account?",
-                        style: TextStyle(
+                      text: "Dont have an account?",
+                      style: TextStyle(
                         color: Colors.black,
                       ),
                       children: [
                         TextSpan(
-                        recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          Get.offAllNamed(Routes.REGISTER);
-                        },
-                        text: " Register here",
-                        style: TextStyle(
-                        color: Color(0xffED4F2C),
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline
-                      ),
-                      children: [],
-                    ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Get.offAllNamed(Routes.REGISTER);
+                            },
+                          text: " Register here",
+                          style: TextStyle(
+                              color: Color(0xffED4F2C),
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline),
+                          children: [],
+                        ),
                       ],
                     ),
                   ),
