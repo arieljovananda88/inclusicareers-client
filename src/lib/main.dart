@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'app/routes/app_pages.dart';
 import 'app/widgets/splash.dart';
 
+import 'app/modules/register/register_controller.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
@@ -27,5 +29,12 @@ class MyApp extends StatelessWidget {
         }
       },
     );
+  }
+}
+
+class InitialBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.put(RegisterController()); // Register the RegisterController
   }
 }
