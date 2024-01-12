@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:inclusi_careers/app/routes/app_pages.dart';
 
-import './login_controller.dart';
+import './register_controller.dart';
 
-class LoginView extends GetView<LoginController> {
+class RegisterView extends GetView<RegisterController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,7 @@ class LoginView extends GetView<LoginController> {
             ),
             SizedBox(height: 30),
             Text(
-              "Login",
+              "Register",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 40,
@@ -33,14 +33,16 @@ class LoginView extends GetView<LoginController> {
               ),
             ),
             SizedBox(height: 30),
-            // Text(
-            //   "Nomor HP",
-            //   style: TextStyle(
-            //     fontSize: 18,
-            //     fontWeight: FontWeight.bold,
-            //   ),
-            // ),
-            // SizedBox(height: 10),
+            TextField(
+              controller: controller.phoneC,
+              keyboardType: TextInputType.phone,
+              autocorrect: false,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Full Name",
+              ),
+            ),
+            SizedBox(height: 20),
             TextField(
               controller: controller.phoneC,
               keyboardType: TextInputType.phone,
@@ -60,32 +62,11 @@ class LoginView extends GetView<LoginController> {
                 hintText: "Password",
               ),
             ),
-            SizedBox(height: 15),
-            Row(
-              children: [
-                Expanded(
-                  child: RichText(
-                    textAlign: TextAlign.right,
-                    text: TextSpan(
-                        recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          print("do something");
-                        },
-                        text: "Forgot Your Password?",
-                        style: TextStyle(
-                        color: Color(0xffED4F2C),
-                      ),
-                      children: [],
-                    ),
-                  ),
-                ),
-              ],
-            ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => Get.offAllNamed(Routes.REGISTER),
+              onPressed: () => Get.offAllNamed(Routes.LOGIN),
               child: Text(
-                "Log In",
+                "Register",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -108,7 +89,7 @@ class LoginView extends GetView<LoginController> {
                         ..onTap = () {
                           print("do something");
                         },
-                        text: "Dont have an account?",
+                        text: "Already have an account?",
                         style: TextStyle(
                         color: Colors.black,
                       ),
@@ -116,9 +97,9 @@ class LoginView extends GetView<LoginController> {
                         TextSpan(
                         recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          Get.offAllNamed(Routes.REGISTER);
+                          Get.offAllNamed(Routes.LOGIN);
                         },
-                        text: " Register here",
+                        text: " Back to Login",
                         style: TextStyle(
                         color: Color(0xffED4F2C),
                         fontWeight: FontWeight.bold,
@@ -132,15 +113,6 @@ class LoginView extends GetView<LoginController> {
                 ),
               ],
             ),
-            SizedBox(height: 15),
-            Center(
-              child: Text("Or"),
-            ),
-            SizedBox(height: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [],
-            )
           ],
         ),
       ),
